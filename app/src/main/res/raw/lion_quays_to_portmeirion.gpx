@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" creator="mapstogpx.com" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd">
+  <metadata>
+    <link href="http://www.mapstogpx.com">
+      <text>Sverrir Sigmundarson</text>
+    </link>
+    <!--desc>Map data copyright 2023 Google</desc-->
+    <!--copyright author="Google Inc">
+    	<year>2023</year>
+    	<license>https://developers.google.com/maps/terms</license>
+    </copyright-->
+    <!--url>https://www.google.com/maps/dir/Lion+Quays+Luxury+Hotel+%26+Spa,+Weston+Rhyn,+Oswestry/52.6998192,-3.6196305/52.6745787,-3.8734573/52.6048118,-3.7916533/Portmeirion,+Penrhyndeudraeth/@52.769879,-3.8920004,10z/am=t/data=!4m18!4m17!1m5!1m1!1s0x487aba0684bba499:0x50cf74d863bdeb20!2m2!1d-3.0414694!2d52.9135277!1m0!1m0!1m0!1m5!1m1!1s0x486575891268181b:0xf82fa42c0eaceff5!2m2!1d-4.0973316!2d52.9144986!3e0!4e1?entry=tts&shorturl=1&hl=en</url-->
+    <time>2023-09-29T15:12:12Z</time>
+  </metadata>
+  <wpt lat="52.9135277" lon="-3.0414694">
+    <name>Lion Quays Luxury Hotel &amp; Spa</name>
+    <desc>Lion Quays Luxury Hotel &amp; Spa Resort, Weston Rhyn, Gobowen, Oswestry SY11 3EN, United Kingdom</desc>
+  </wpt>
+  <wpt lat="52.6998192" lon="-3.6196305">
+    <name>Machynlleth SY20 9HR</name>
+    <desc>A458, Machynlleth SY20 9HR, UK</desc>
+  </wpt>
+  <wpt lat="52.6745787" lon="-3.8734573">
+    <name>Machynlleth SY20 9RH</name>
+    <desc>Rhiw Gwgan, Machynlleth SY20 9RH, UK</desc>
+  </wpt>
+  <wpt lat="52.6048118" lon="-3.7916533">
+    <name>Machynlleth SY20 8NW</name>
+    <desc>A489, Machynlleth SY20 8NW, UK</desc>
+  </wpt>
+  <wpt lat="52.9144986" lon="-4.0973316">
+    <name>Portmeirion</name>
+    <desc>Portmeirion, Penrhyndeudraeth, UK</desc>
+  </wpt>
+<rte>
+  <name>Lion Quays to Portmerion</name>
+  <rtept lat="52.9133253" lon="-3.041731">
+    <name>RP001</name>
+  </rtept>
+  <rtept lat="52.9115539" lon="-3.041307">
+    <name>RP002</name>
+  </rtept>
+  <rtept lat="52.9114513" lon="-3.0420978">
+    <name>RP003</name>
+  </rtept>
+  <rtept lat="52.8828264" lon="-3.0403315">
+    <name>RP004</name>
+  </rtept>
+  <rtept lat="52.8515806" lon="-3.0266181">
+    <name>RP005</name>
+  </rtept>
+  <rtept lat="52.8504067" lon="-3.0274837">
+    <name>RP006</name>
+  </rtept>
+  <rtept lat="52.8096104" lon="-3.066314">
+    <name>RP007</name>
+  </rtept>
+  <rtept lat="52.8014521" lon="-3.1111378">
+    <name>RP008</name>
+  </rtept>
+  <rtept lat="52.660407" lon="-3.3544517">
+    <name>RP009</name>
+  </rtept>
+  <rtept lat="52.6998119" lon="-3.6196277">
+    <name>RP010</name>
+  </rtept>
+  <rtept lat="52.6984978" lon="-3.684545">
+    <name>RP011</name>
+  </rtept>
+  <rtept lat="52.7341921" lon="-3.828234">
+    <name>RP012</name>
+  </rtept>
+  <rtept lat="52.6745865" lon="-3.8734428">
+    <name>RP013</name>
+  </rtept>
+  <rtept lat="52.5905595" lon="-3.8532945">
+    <name>RP014</name>
+  </rtept>
+  <rtept lat="52.6048117" lon="-3.7916531">
+    <name>RP015</name>
+  </rtept>
+  <rtept lat="52.6248603" lon="-3.7423757">
+    <name>RP016</name>
+  </rtept>
+  <rtept lat="52.9374303" lon="-3.9477921">
+    <name>RP017</name>
+  </rtept>
+  <rtept lat="52.926429" lon="-4.0808133">
+    <name>RP018</name>
+  </rtept>
+  <rtept lat="52.9248629" lon="-4.0893954">
+    <name>RP019</name>
+  </rtept>
+  <rtept lat="52.9245434" lon="-4.0891653">
+    <name>RP020</name>
+  </rtept>
+  <rtept lat="52.9183047" lon="-4.093747">
+    <name>RP021</name>
+  </rtept>
+</rte>
+</gpx>

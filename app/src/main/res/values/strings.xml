@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Tom Tom Example</string>
+    <string name="location_permission_denied">Location permissions denied</string>
 </resources>

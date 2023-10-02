@@ -10,6 +10,14 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven {
+            credentials {
+                username = providers.gradleProperty("repositoryUsername").get()
+                password = providers.gradleProperty("repositoryIdentityToken").get()
+            }
+            url = uri("https://repositories.tomtom.com/artifactory/maven")
+        }
+        maven { url = uri("https://jitpack.io") }
     }
 }
 
