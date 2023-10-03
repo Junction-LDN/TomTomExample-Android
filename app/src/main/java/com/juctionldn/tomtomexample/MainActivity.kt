@@ -60,6 +60,7 @@ import com.tomtom.sdk.vehicle.DefaultVehicleProvider
 import com.tomtom.sdk.vehicle.Vehicle
 import io.ticofab.androidgpxparser.parser.GPXParser
 import io.ticofab.androidgpxparser.parser.domain.Gpx
+import timber.log.Timber
 
 private const val API_KEY = BuildConfig.TOMTOM_API_KEY
 
@@ -233,10 +234,14 @@ class MainActivity : AppCompatActivity() {
      */
     private fun calculateRouteTo(wayPoints: List<GeoPoint>) {
 
+        val intermediateWaypoints = wayPoints as MutableList<GeoPoint>
+        val origin = intermediateWaypoints.removeFirst()
+        val destination = intermediateWaypoints.removeLast()
+
         val itinerary = Itinerary(
-            wayPoints.first(),
-            wayPoints.last(),
-            wayPoints,
+            origin,
+            destination,
+            intermediateWaypoints,
             Angle.degrees(30)
         )
         routePlanningOptions = RoutePlanningOptions(
@@ -264,6 +269,9 @@ class MainActivity : AppCompatActivity() {
             route = result.routes.first()
             drawRoute(route!!)
             tomTomMap.zoomToRoutes(ZOOM_TO_ROUTE_PADDING)
+
+            setSimulationLocationProviderToNavigation(route!!)
+//            setAndroidLocationProviderToNavigation()
         }
 
         override fun onFailure(failure: RoutingFailure) {
@@ -337,8 +345,7 @@ class MainActivity : AppCompatActivity() {
             tomTomMap.cameraTrackingMode = CameraTrackingMode.FollowRoute
             tomTomMap.enableLocationMarker(LocationMarkerOptions(LocationMarkerOptions.Type.Chevron))
             setMapMatchedLocationProvider()
-//            setSimulationLocationProviderToNavigation(route!!)
-            setAndroidLocationProviderToNavigation()
+            locationProvider.enable()
             setMapNavigationPadding()
         }
 
@@ -371,6 +378,8 @@ class MainActivity : AppCompatActivity() {
 
     private val routeUpdatedListener by lazy {
         RouteUpdatedListener { route, updateReason ->
+            Timber.tag("TomTom").d("RouteUpdatedListener - Reason: $updateReason")
+
             if (updateReason != RouteUpdateReason.Refresh &&
                 updateReason != RouteUpdateReason.Increment &&
                 updateReason != RouteUpdateReason.LanguageChange
@@ -387,7 +396,6 @@ class MainActivity : AppCompatActivity() {
     private fun setAndroidLocationProviderToNavigation() {
         locationProvider = AndroidLocationProvider(this@MainActivity)
         tomTomNavigation.locationProvider = locationProvider
-        locationProvider.enable()
     }
 
     /**
@@ -398,7 +406,6 @@ class MainActivity : AppCompatActivity() {
         val simulationStrategy = InterpolationStrategy(routeGeoLocations)
         locationProvider = SimulationLocationProvider.create(strategy = simulationStrategy)
         tomTomNavigation.locationProvider = locationProvider
-        locationProvider.enable()
     }
 
     /**
