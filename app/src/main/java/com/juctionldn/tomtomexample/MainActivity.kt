@@ -38,6 +38,9 @@ import com.tomtom.sdk.navigation.RouteUpdatedListener
 import com.tomtom.sdk.navigation.TomTomNavigation
 import com.tomtom.sdk.navigation.online.Configuration
 import com.tomtom.sdk.navigation.online.OnlineTomTomNavigationFactory
+import com.tomtom.sdk.navigation.replanning.RouteReplanningEngineFactory
+import com.tomtom.sdk.navigation.replanning.RouteReplanningEngineOptions
+import com.tomtom.sdk.navigation.replanning.RouteUpdateMode
 import com.tomtom.sdk.navigation.routereplanner.RouteReplanner
 import com.tomtom.sdk.navigation.routereplanner.online.OnlineRouteReplannerFactory
 import com.tomtom.sdk.navigation.ui.NavigationFragment
@@ -131,11 +134,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * You can plan route by initializing by using the online route planner and default route replanner.
+     * You can plan routes by initializing by using the online route planner and default route replanner.
      */
     private fun initRouting() {
-        routePlanner =
-            OnlineRoutePlanner.create(context = this, apiKey = API_KEY)
+        routePlanner = OnlineRoutePlanner.create(context = this, apiKey = API_KEY)
         routeReplanner = OnlineRouteReplannerFactory.create(routePlanner)
     }
 
@@ -143,11 +145,17 @@ class MainActivity : AppCompatActivity() {
      * To use navigation in the application, start by by initialising the navigation configuration.
      */
     private fun initNavigation() {
+        val options = RouteReplanningEngineOptions(
+            routeUpdateMode = RouteUpdateMode.Disabled
+        )
+        val engine = RouteReplanningEngineFactory.create(routeReplanner, options)
         val configuration = Configuration(
             context = this,
             apiKey = API_KEY,
             locationProvider = locationProvider,
+            routePlanner = routePlanner,
             routeReplanner = routeReplanner,
+            routeReplanningEngine = engine,
             vehicleProvider = DefaultVehicleProvider(vehicle = Vehicle.Car())
         )
         tomTomNavigation = OnlineTomTomNavigationFactory.create(configuration)
@@ -270,8 +278,8 @@ class MainActivity : AppCompatActivity() {
             drawRoute(route!!)
             tomTomMap.zoomToRoutes(ZOOM_TO_ROUTE_PADDING)
 
-            setSimulationLocationProviderToNavigation(route!!)
-//            setAndroidLocationProviderToNavigation()
+//            setSimulationLocationProviderToNavigation(route!!)
+            setAndroidLocationProviderToNavigation()
         }
 
         override fun onFailure(failure: RoutingFailure) {
@@ -344,7 +352,7 @@ class MainActivity : AppCompatActivity() {
             tomTomMap.addCameraChangeListener(cameraChangeListener)
             tomTomMap.cameraTrackingMode = CameraTrackingMode.FollowRoute
             tomTomMap.enableLocationMarker(LocationMarkerOptions(LocationMarkerOptions.Type.Chevron))
-            setMapMatchedLocationProvider()
+//            setMapMatchedLocationProvider()
             locationProvider.enable()
             setMapNavigationPadding()
         }
