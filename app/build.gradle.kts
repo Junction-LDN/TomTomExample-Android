@@ -57,11 +57,11 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
+    implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
     // TomTom
-    val tomtomVersion = "0.32.6"
+    val tomtomVersion = "0.33.1"
     implementation("com.tomtom.sdk.maps:map-display:$tomtomVersion")
     implementation("com.tomtom.sdk.location:provider-simulation:$tomtomVersion")
     implementation("com.tomtom.sdk.location:provider-android:$tomtomVersion")
